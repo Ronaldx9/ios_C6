@@ -1,0 +1,233 @@
+
+Algoritmo "ControleDeEstoque_VisualG"
+
+Var
+  usuario:       caractere 
+  senha:         caractere
+  opcao:         inteiro 
+  qtd:           inteiro
+  codigoRemedio: inteiro
+  dipirona, ibuprofeno, clonazepam, losartana, ritalina: inteiro
+  furosemida, amoxicilina, cefalina, omeprazol, simeticona: inteiro
+
+Inicio
+  dipirona <- 100
+  ibuprofeno <- 75
+  clonazepam <- 15
+  losartana <- 100
+  ritalina <- 20
+  furosemida <- 10
+  amoxicilina <- 50
+  cefalina <- 10
+  omeprazol <- 100
+  simeticona <- 10
+
+  escreval("=================== Login no sistema ===================")
+  
+  escreval("Usuário:")
+  leia(usuario)
+
+  se usuario <> "123" entao
+     escreval("Usuário não encontrado!")
+  
+  fimalgoritmo
+  fimse
+
+  escreval("Senha:")
+  leia(senha)
+
+  se senha <> "234" entao
+     escreval("Senha incorreta!")
+  
+  fimalgoritmo
+  fimse
+
+  escreval("Bem-vindo ao Sistema de Controle de Estoque!")
+
+  repita
+     escreval("")
+     escreval("=================== MENU ===================")
+     escreval("1 - Registrar Entrada de Medicamento")
+     escreval("2 - Registrar Saída de Medicamento")
+     escreval("3 - Consulta de Estoque")
+     escreval("4 - Sair")
+     leia(opcao)
+
+escolha opcao
+        caso 1
+           escreval("Qual Medicamento Entrou?")
+           escreval("1 - Dipirona")
+           escreval("2 - Ibuprofeno")
+           escreval("3 - Clonazepam")
+           escreval("4 - Losartana")
+           escreval("5 - Ritalina")
+           escreval("6 - Furosemida")
+           escreval("7 - Amoxicilina")
+           escreval("8 - Cefalina")
+           escreval("9 - Omeprazol")
+           escreval("10 - Simeticona")
+           leia(codigoRemedio)
+
+           escreval("Quantas unidades entraram?")
+           leia(qtd)
+
+se qtd > 0 entao
+escolha codigoRemedio
+
+        caso 1
+            dipirona <- dipirona + qtd
+            escreval("Quantidade de Dipirona: ", dipirona)
+        caso 2
+            ibuprofeno <- ibuprofeno + qtd
+            escreval("Quantidade de Ibuprofeno: ", ibuprofeno)
+        caso 3
+            clonazepam <- clonazepam + qtd
+            escreval("Quantidade de Clonazepam: ", clonazepam)
+        caso 4
+            losartana <- losartana + qtd
+            escreval("Quantidade de Losartana: ", losartana)
+        caso 5
+            ritalina <- ritalina + qtd
+            escreval("Quantidade de Ritalina: ", ritalina)
+        caso 6
+            furosemida <- furosemida + qtd
+            escreval("Quantidade de Furosemida: ", furosemida)
+        caso 7
+            amoxicilina <- amoxicilina + qtd
+            escreval("Quantidade de Amoxicilina: ", amoxicilina)
+        caso 8
+            cefalina <- cefalina + qtd
+            escreval("Quantidade de Cefalina: ", cefalina)
+        caso 9
+            omeprazol <- omeprazol + qtd
+            escreval("Quantidade de Omeprazol: ", omeprazol)
+        caso 10
+            simeticona <- simeticona + qtd
+            escreval("Quantidade de Simeticona: ", simeticona)
+        outrocaso
+            escreval("Código inválido.")
+fimescolha
+
+fimse
+
+        caso 2
+           escreval("Qual remédio saiu?")
+           escreval("1 - Dipirona")
+           escreval("2 - Ibuprofeno")
+           escreval("3 - Clonazepam")
+           escreval("4 - Losartana")
+           escreval("5 - Ritalina")
+           escreval("6 - Furosemida")
+           escreval("7 - Amoxicilina")
+           escreval("8 - Cefalina")
+           escreval("9 - Omeprazol")
+           escreval("10 - Simeticona")
+           leia(codigoRemedio)
+
+           escreval("Quantas unidades saíram?")
+           leia(qtd)
+
+se qtd > 0 entao  
+escolha codigoRemedio
+        caso 1
+            se  dipirona >= qtd entao
+                dipirona <- dipirona - qtd
+                escreval("Quantidade de Dipirona: ", dipirona)
+            senao
+                escreval("Estoque insuficiente! Atual: ", dipirona)
+            fimse
+        caso 2
+            se ibuprofeno >= qtd entao
+                ibuprofeno <- ibuprofeno - qtd
+                escreval("Quantidade de Ibuprofeno: ", ibuprofeno)
+            senao
+                escreval("Estoque insuficiente! Atual: ", ibuprofeno)
+            fimse
+        caso 3
+            se clonazepam >= qtd entao
+                clonazepam <- clonazepam - qtd
+                escreval("Quantidade de Clonazepam: ", clonazepam)
+            senao
+                escreval("Estoque insuficiente! Atual: ", clonazepam)
+            fimse
+        caso 4
+            se losartana >= qtd entao
+                losartana <- losartana - qtd
+                escreval("Quantidade de Losartana: ", losartana)
+            senao
+                escreval("Estoque insuficiente! Atual: ", losartana)
+            fimse
+        caso 5
+            se ritalina >= qtd entao
+                ritalina <- ritalina - qtd
+                escreval("Quantidade de Ritalina: ", ritalina)
+            senao
+                escreval("Estoque insuficiente! Atual: ", ritalina)
+            fimse
+        caso 6
+            se furosemida >= qtd entao
+                furosemida <- furosemida - qtd
+                escreval("Quantidade de Furosemida: ", furosemida)
+            senao
+                escreval("Estoque insuficiente! Atual: ", furosemida)
+            fimse
+        caso 7
+            se amoxicilina >= qtd entao
+                amoxicilina <- amoxicilina - qtd
+                escreval("Quantidade de Amoxicilina: ", amoxicilina)
+            senao
+                escreval("Estoque insuficiente! Atual: ", amoxicilina)
+            fimse
+        caso 8
+            se cefalina >= qtd entao
+                cefalina <- cefalina - qtd
+                escreval("Quantidade de Cefalina: ", cefalina)
+            senao
+                escreval("Estoque insuficiente! Atual: ", cefalina)
+            fimse
+        caso 9
+            se omeprazol >= qtd entao
+                omeprazol <- omeprazol - qtd
+                escreval("Quantidade de Omeprazol: ", omeprazol)
+            senao
+                escreval("Estoque insuficiente! Atual: ", omeprazol)
+            fimse
+        caso 10
+            se simeticona >= qtd entao
+                simeticona <- simeticona - qtd
+                escreval("Quantidade de Simeticona: ", simeticona)
+            senao
+                escreval("Estoque insuficiente! Atual: ", simeticona)
+            fimse
+         outrocaso
+         escreval("Código inválido.")
+fimescolha
+
+senao
+          escreval("Quantidade inválida.")
+fimse
+
+        caso 3
+           escreval("=================== Estoque Atual ===================")
+           escreval("Dipirona: ", dipirona)
+           escreval("Ibuprofeno: ", ibuprofeno)
+           escreval("Clonazepam: ", clonazepam)
+           escreval("Losartana: ", losartana)
+           escreval("Ritalina: ", ritalina)
+           escreval("Furosemida: ", furosemida)
+           escreval("Amoxicilina: ", amoxicilina)
+           escreval("Cefalina: ", cefalina)
+           escreval("Omeprazol: ", omeprazol)
+           escreval("Simeticona: ", simeticona)
+
+        caso 4
+           escreval("Saindo do sistema...")
+
+        outrocaso
+           escreval("Opção inválida.")
+
+fimescolha
+
+        ate opcao = 4
+
+Fimalgoritmo
