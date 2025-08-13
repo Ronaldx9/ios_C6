@@ -1,0 +1,638 @@
+Algoritmo "ControleDeEstoque_VisualG"
+Var
+  usuario, senha: caractere
+  opcao, qtd, codigoRemedio, correcao: inteiro
+  dipirona, ibuprofeno, clonazepam, losartana, ritalina: inteiro
+  furosemida, amoxicilina, cefalina, omeprazol, simeticona: inteiro
+
+Inicio
+  dipirona <- 100
+  ibuprofeno <- 75
+  clonazepam <- 15
+  losartana <- 100
+  ritalina <- 20
+  furosemida <- 10
+  amoxicilina <- 50
+  cefalina <- 10
+  omeprazol <- 100
+  simeticona <- 10
+
+  repita
+  escreval
+  escreval (">>>>>>>>>> LOGIN <<<<<<<<<<")
+  escreval
+  escreval("Usuário:")
+  leia(usuario)
+
+  se usuario <> "admin" entao
+    escreval
+    escreval("Usuário não encontrado! Tente novamente.")
+  fimse
+ate usuario = "admin"
+
+// Loop para validar senha (mantendo usuário correto)
+repita
+
+  escreval
+  escreval("Senha:")
+  leia(senha)
+
+  se senha <> "pharmaios" entao
+    escreval
+    escreval("Senha incorreta! Tente novamente.")
+  fimse
+ate senha = "pharmaios"
+
+     escreval
+     escreval("===============================================================")
+     escreval("           SISTEMA DE CONTROLE DE ESTOQUE - PharmaIOS          ")
+     escreval("===============================================================")
+     escreval
+     escreval("Bem-vindo ao Sistema de Controle de Estoque da PharmaIOS!")
+
+  repita
+     escreval("")
+     escreval("===============================================================")
+     escreval("                             MENU                              ")
+     escreval("===============================================================")
+     escreval
+     escreval("1 - Registrar Entrada de Medicamento")
+     escreval("2 - Registrar Saída de Medicamento")
+     escreval("3 - Consulta de Estoque")
+     escreval("4 - Sair")
+     escreval
+     escreval("Informe a opção desejada:")
+     leia(opcao)
+     escolha opcao
+
+     caso 1
+    escreval("===============================================================")
+    escreval("                CATÁLOGO DE MEDICAMENTOS - INCLUIR             ")
+    escreval("===============================================================")
+    escreval
+    escreval("1 - Dipirona")
+    escreval("2 - Ibuprofeno")
+    escreval("3 - Clonazepam")
+    escreval("4 - Losartana")
+    escreval("5 - Ritalina")
+    escreval("6 - Furosemida")
+    escreval("7 - Amoxicilina")
+    escreval("8 - Cefalina")
+    escreval("9 - Omeprazol")
+    escreval("10 - Simeticona")
+    escreval
+
+ repita
+    escreval("Informe o medicamento desejado (1 a 10):")
+    leia(codigoRemedio)
+
+    // Apenas mostre a mensagem de erro se a entrada for inválida.
+    se (codigoRemedio < 1) ou (codigoRemedio > 10) entao
+        escreval
+        escreval("================================")
+        escreval("Opção inválida. Tente novamente.")
+        escreval("================================")
+        escreval
+
+    fimse
+
+// A condição de parada garante que o loop só termine quando o código for válido.
+              ate (codigoRemedio >= 1) e (codigoRemedio <= 10)
+           escreval
+           escreval("Quantas unidades serão registradas?")
+           leia(qtd)
+
+           se qtd > 0 entao
+              escolha codigoRemedio
+        caso 1
+            dipirona <- dipirona + qtd
+            escreval("____________________________________________________________")
+            escreval
+            escreval(">>>>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Dipirona.")
+            escreval("____________________________________________________________")
+            escreval
+            escreval("- No momento, há", dipirona," unidade(s) de Dipirona em Estoque.")
+            escreval("____________________________________________________________")
+            escreval
+            escreval
+            escreval("Retornando o MENU anterior...")
+            escreval
+
+                caso 2
+            ibuprofeno <- ibuprofeno + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Ibuprofeno.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", ibuprofeno," unidade(s) de Ibuprofeno em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 3
+            clonazepam <- clonazepam + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Clonazepam.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", clonazepam," unidade(s) de Clonazepam em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 4
+            losartana <- losartana + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Losartana.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", losartana," unidade(s) de Losartana em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 5
+            ritalina <- ritalina + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Ritalina.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", ritalina," unidade(s) de Ritalina em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 6
+            furosemida <- furosemida + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Furosemida.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", furosemida," unidade(s) de Furosemida em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 7
+            amoxicilina <- amoxicilina + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Amoxicilina.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", amoxicilina," unidade(s) de Amoxicilina em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 8
+            cefalina <- cefalina + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Cefalina.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", cefalina," unidade(s) de Cefalina em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 9
+            omeprazol <- omeprazol + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Omeprazol.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", omeprazol," unidade(s) de Omeprazol em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+
+        caso 10
+            simeticona <- simeticona + qtd
+            escreval("____________________________________________________________")
+            escreval()
+            escreval(">>>>>>>>>>> Inclusão realizada com sucesso! <<<<<<<<<<<")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- Foram registradas", qtd," nova(s) unidade(s) de Simeticona.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval("- No momento, há", simeticona," unidade(s) de Simeticona em Estoque.")
+            escreval("____________________________________________________________")
+            escreval()
+            escreval()
+            escreval("Retornando o MENU anterior...")
+            escreval()
+   outrocaso
+      escreval("Código inválido.")
+fimescolha
+
+fimse
+        caso 2
+
+           escreval
+           escreval("===============================================================")
+           escreval("                CATÁLOGO DE MEDICAMENTOS - RETIRAR             ")
+           escreval("===============================================================")
+           escreval
+           escreval("1 - Dipirona")
+           escreval("2 - Ibuprofeno")
+           escreval("3 - Clonazepam")
+           escreval("4 - Losartana")
+           escreval("5 - Ritalina")
+           escreval("6 - Furosemida")
+           escreval("7 - Amoxicilina")
+           escreval("8 - Cefalina")
+           escreval("9 - Omeprazol")
+           escreval("10 - Simeticona")
+           escreval
+repita
+    escreval("Informe o medicamento desejado (1 a 10):")
+    leia(codigoRemedio)
+
+    // Apenas mostre a mensagem de erro se a entrada for inválida.
+    se (codigoRemedio < 1) ou (codigoRemedio > 10) entao
+        escreval
+        escreval("================================")
+        escreval("Opção inválida. Tente novamente.")
+        escreval("================================")
+        escreval
+    fimse
+
+// A condição de parada garante que o loop só termine quando o código for válido.
+              ate (codigoRemedio >= 1) e (codigoRemedio <= 10)
+           escreval
+           escreval("Quantidade de medicamentos extraídos do Estoque:")
+
+           leia(qtd)
+
+          se qtd > 0 entao
+    escolha codigoRemedio
+        caso 1
+            se dipirona >= qtd entao
+                dipirona <- dipirona - qtd
+                escreval
+                escreval("____________________________________________________________")
+                escreval
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Foram extraídas", qtd," unidade(s) de Dipirona do Estoque.")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", dipirona," unidade(s) de Dipirona em Estoque.")
+                escreval("____________________________________________________________")
+                escreval
+                escreval
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", dipirona," unidade(s) de Dipirona em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+        caso 2
+            se ibuprofeno >= qtd entao
+                ibuprofeno <- ibuprofeno - qtd
+            fimse
+
+        caso 3
+            se clonazepam >= qtd entao
+                clonazepam <- clonazepam - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Clonazepam do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", clonazepam," unidade(s) de Clonazepam em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", clonazepam," unidade(s) de Clonazepam em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 4
+            se losartana >= qtd entao
+                losartana <- losartana - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Losartana do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", losartana," unidade(s) de Losartana em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", losartana," unidade(s) de Losartana em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 5
+            se ritalina >= qtd entao
+                ritalina <- ritalina - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Ritalina do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", ritalina," unidade(s) de Ritalina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", ritalina," unidade(s) de Ritalina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 6
+            se furosemida >= qtd entao
+                furosemida <- furosemida - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Furosemida do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", furosemida," unidade(s) de Furosemida em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", furosemida," unidade(s) de Furosemida em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 7
+            se amoxicilina >= qtd entao
+                amoxicilina <- amoxicilina - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Amoxicilina do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", amoxicilina," unidade(s) de Amoxicilina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", amoxicilina," unidade(s) de Amoxicilina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 8
+            se cefalina >= qtd entao
+                cefalina <- cefalina - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Cefalina do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", cefalina," unidade(s) de Cefalina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", cefalina," unidade(s) de Cefalina em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+
+        caso 9
+            se omeprazol >= qtd entao
+                omeprazol <- omeprazol - qtd
+            fimse
+
+        caso 10
+            se simeticona >= qtd entao
+                simeticona <- simeticona - qtd
+                escreval()
+                escreval("____________________________________________________________")
+                escreval()
+                escreval(">>>>>>>>>>> Extração realizada com sucesso! <<<<<<<<<<<")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- Foram extraídas", qtd," unidade(s) de Simeticona do Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval("- No momento, há", simeticona," unidade(s) de Simeticona em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            senao
+                escreval()
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- Não é possível atender sua solicitação. Estoque insuficiente!")
+                escreval("____________________________________________________________")
+                escreval
+                escreval("- No momento, há", simeticona," unidade(s) de Simeticona em Estoque.")
+                escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+            fimse
+            outrocaso
+                    escreval
+                    escreval("Código inválido.")
+                    escreval
+              fimescolha
+           senao
+              escreval
+              escreval("Quantidade inválida. Tente novamente")
+              escreval
+           fimse
+
+        caso 3
+           escreval
+           escreval("===============================================================")
+           escreval("                          ESTOQUE ATUAL                        ")
+           escreval("===============================================================")
+           escreval
+           escreval("Dipirona:", dipirona)
+           escreval("Ibuprofeno:", ibuprofeno)
+           escreval("Clonazepam:", clonazepam)
+           escreval("Losartana:", losartana)
+           escreval("Ritalina:", ritalina)
+           escreval("Furosemida:", furosemida)
+           escreval("Amoxicilina:", amoxicilina)
+           escreval("Cefalina:", cefalina)
+           escreval("Omeprazol:", omeprazol)
+           escreval("Simeticona:", simeticona)
+           escreval("____________________________________________________________")
+                escreval()
+                escreval()
+                escreval("Retornando para o MENU principal...")
+                escreval()
+        caso 4
+           escreval
+           escreval("==========================================================")
+           escreval("===============LOGOUT REALIZADO COM SUCESSO===============")
+           escreval("==========================================================")
+           outrocaso
+           escreval
+           escreval("Opção inválida. Tente novamente")
+           escreval
+     fimescolha
+
+  ate opcao = 4
+
+Fimalgoritmo
