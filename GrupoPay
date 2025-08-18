@@ -1,0 +1,73 @@
+Algoritmo "PayUpRH_GestaoSalarial"
+
+Var
+  nome, nomeCategoria: caractere
+  categoria, plantao, horaExtra: inteiro
+  base, valorPlantao, valorHoraExtra, total, horasPorMes: real
+
+Inicio
+  Escreval("=== PayUp  - Cálculo Salarial ===")
+
+  Escreva("Digite o nome do funcionário: ")
+  Leia(nome)
+
+  Escreval("Categorias:")
+  Escreval("1 - Médico")
+  Escreval("2 - Enfermeiro")
+  Escreval("3 - Técnico")
+  Escreva("Escolha a categoria (1, 2 ou 3): ")
+  Leia(categoria)
+
+  escolha categoria
+    caso 1
+      base <- 10000
+      valorPlantao <- 1200
+      valorHoraExtra <- 100
+      nomeCategoria <- "Médico"
+      interrompa
+    caso 2
+      base <- 5000
+      valorPlantao <- 600
+      valorHoraExtra <- 50
+      nomeCategoria <- "Enfermeiro"
+      interrompa
+    caso 3
+      base <- 3000
+      valorPlantao <- 300
+      valorHoraExtra <- 30
+      nomeCategoria <- "Técnico"
+      interrompa
+    outrocaso
+      Escreval("Categoria inválida!")
+      retorne
+  fimescolha
+
+  horasPorMes <- 180
+
+  Escreva("Quantos plantões foram realizados no mês? ")
+  Leia(plantao)
+
+  Escreva("Quantas horas extras foram feitas? ")
+  Leia(horaExtra)
+
+  total <- base + (plantao * valorPlantao) + (horaExtra * valorHoraExtra)
+
+  Escreval("")
+  Escreval("Resumo do salário de ", nome, ":")
+  Escreval("Categoria: ", nomeCategoria)
+  Escreval("Escala: 12x36 (12 horas por plantão)")
+  Escreval("Horas estimadas no mês: ", horasPorMes:0:0)
+  Escreval("Plantões realizados: ", plantao)
+  Escreval("Horas extras realizadas: ", horaExtra)
+
+  Escreval("")
+  Escreval("Cálculo detalhado:")
+  Escreval("Salário base: R$ ", base:0:2)
+  Escreval("Valor dos plantões: ", plantao, " x R$ ", valorPlantao:0:2, " = R$ ", (plantao * valorPlantao):0:2)
+  Escreval("Valor das horas extras: ", horaExtra, " x R$ ", valorHoraExtra:0:2, " = R$ ", (horaExtra * valorHoraExtra):0:2)
+
+  Escreval("-----------------------------")
+  Escreval("Salário total: R$ ", total:0:2)
+
+Fimalgoritmo
+
