@@ -1,0 +1,312 @@
+package Aula_Java;
+
+import java.util.Scanner;
+
+public class Filmes{
+
+//Código com comentários coloridos pelo criador:
+
+//Classe Scanner chamada para ser utilizada no código.
+
+//Estrutura principal do código. A class é onde o programa mora.
+
+
+//Primeira chave é o início da classe.
+
+
+//Início da execução do programa.
+
+public static void main(String[] args) {
+
+//Scanner para ler dados de entrada pelo Teclado, digitando.
+
+Scanner teclado = new Scanner(System.in);
+
+// Inclusão dos dados fixos para usuárioCorreto e senhaCorreta.
+
+// Serão utilizados na comparação com login e senha digitados pelo //usuário.
+
+// Variáveis tipo String e tipo números inteiros.
+
+String USUARIO_CORRETO = "admin";
+
+int SENHA_CORRETA = 123;
+
+String login;
+
+int senha;
+
+//Criação de Laço ou loop de repetição até o login/senha ser verdadeiro //(true).
+
+while (true) {
+
+System.out.println();
+System.out.print("===Bem Vindo. Para acessar o sistema digite o login e senha===: ");
+System.out.println();
+System.out.println();
+
+
+System.out.print("Digite o login: ");
+
+login = teclado.nextLine();
+
+System.out.print("Digite a senha (apenas números): ");
+
+senha = Integer.parseInt(teclado.nextLine());
+
+//Estrutura de Decisão IF, comparando o login fixo com o login digitado.
+
+if (login.equals(USUARIO_CORRETO) && senha == SENHA_CORRETA) {
+
+System.out.println("Acesso liberado.");
+
+//o break acontece para o compilador seguir nas próximas linhas de //comando.
+
+break;
+
+// Encerra o loop se estiver certo.
+
+}
+
+// Caso não esteja correto (true), o usuário tentará novamente o login e //senha.
+
+else {
+
+System.out.println("Acesso impossível. Tente novamente.\n");
+
+}
+
+//Fim do Laço while.
+
+}
+
+//Criação das variáveis para salvar as informações dos 5 filmes.
+
+//2 variáveis String (titulo e gênero) e 1 variável número inteiro (ano).
+
+String titulo1 = "", genero1 = "";
+
+int ano1 = 0;
+
+String titulo2 = "", genero2 = "";
+
+int ano2 = 0;
+
+String titulo3 = "", genero3 = "";
+
+int ano3 = 0;
+
+String titulo4 = "", genero4 = "";
+
+int ano4 = 0;
+
+String titulo5 = "", genero5 = "";
+
+int ano5 = 0;
+
+//Criação da variável inteiro contador como um índice de cada filme
+
+//armazenado/salvo. Ou seja, cada filme será 1, 2, 3, 4 e 5.
+
+int contador = 1;
+
+//Comando para pular uma linha.
+
+System.out.println();
+
+//Criação de Laço ou loop de repetição até o contador ultrapassar o //número 5.
+
+while (contador <=5) {
+
+System.out.println("Digite o título do filme " + contador + ":");
+
+String titulo = teclado.nextLine();
+
+System.out.println("Digite o ano do lançamento do filme "+ contador + ":");
+
+int ano = Integer.parseInt(teclado.nextLine());
+
+System.out.println("Digite o gênero do filme " + contador + ":");
+
+String genero = teclado.nextLine();
+
+//Dentro do Laço de repetição utilização da estrutura de decisão IF.
+
+//Identificação de cada Filme cadastrado de acordo com seu índice //(contador).
+
+if(contador==1){
+
+titulo1 = titulo;
+
+ano1 = ano;
+
+genero1 = genero;
+
+}
+
+else if(contador==2){
+
+titulo2 = titulo;
+
+ano2 = ano;
+
+genero2 = genero;
+
+}
+
+else if(contador==3){
+
+titulo3 = titulo;
+
+ano3 = ano;
+
+genero3 = genero;
+
+}
+
+else if(contador==4){
+
+titulo4 = titulo;
+
+ano4 = ano;
+
+genero4 = genero;
+
+}
+
+else if(contador==5){
+
+titulo5 = titulo;
+
+ano5 = ano;
+
+genero5 = genero;
+
+}
+
+//Variável contador recebe (soma) o valor dela mais 1.
+
+//Esse Laço se repete até o valor do contador ter valor de 5.
+
+contador++;
+
+//Comando para pular uma linha.
+
+System.out.println();
+
+//Fim do Laço while.
+
+}
+
+//Criação do Menu com opção de ver cadastro de filmes (1) ou sair do //sistema (2). Ou indicar que a opção está errônea.
+
+int opcao = 0;
+
+//Utilização do Laço Do e While.
+
+do {
+
+System.out.println("\n=== MENU ===");
+
+System.out.println("1 - Ver todos os filmes cadastrados");
+
+System.out.println("2 - Sair do sistema");
+
+System.out.println();
+
+System.out.print("Digite sua opção: ");
+
+//Leitura do Dado de Entrada através do Scanner Teclado.
+
+//Dado salvo na variável opcao.
+
+opcao = teclado.nextInt();
+
+// Para limpar o buffer do Enter.
+
+teclado.nextLine();
+
+if (opcao == 1) {
+
+System.out.println("\n=== FILMES CADASTRADOS ===");
+
+System.out.println("\nFilme 1:");
+
+System.out.println("Título: " + titulo1);
+
+System.out.println("Ano: " + ano1);
+
+System.out.println("Gênero: " + genero1);
+
+System.out.println("\nFilme 2:");
+
+System.out.println("Título: " + titulo2);
+
+System.out.println("Ano: " + ano2);
+
+System.out.println("Gênero: " + genero2);
+
+System.out.println("\nFilme 3:");
+
+System.out.println("Título: " + titulo3);
+
+System.out.println("Ano: " + ano3);
+
+System.out.println("Gênero: " + genero3);
+
+System.out.println("\nFilme 4:");
+
+System.out.println("Título: " + titulo4);
+
+System.out.println("Ano: " + ano4);
+
+System.out.println("Gênero: " + genero4);
+
+System.out.println("\nFilme 5:");
+
+System.out.println("Título: " + titulo5);
+
+System.out.println("Ano: " + ano5);
+
+System.out.println("Gênero: " + genero5);
+
+}
+
+else if (opcao == 2) {
+
+System.out.println("\nEncerrando o sistema!");
+
+System.out.println("\nMuito Obrigado pela Consulta!");
+
+}
+
+//Caso não seja opção 1 e opção 2, então o sistema informa que é 
+//inválida.
+
+else {
+
+System.out.println("\nOpção inválida.");
+
+System.out.println("\nPor favor, escolha opção 1 ou 2.");
+
+}
+
+//Fim do Laço Do-While.
+
+}
+
+//Repetir até a opção ser diferente de 2. Se 2 sistema se encerra.
+
+while (opcao != 2);
+
+//Encerramento do Scanner teclado.
+
+teclado.close();
+
+//Fim da execução do programa, chave fechada.
+
+}
+
+//Fim da classe, chave fechada.
+
+}
