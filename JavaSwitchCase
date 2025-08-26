@@ -1,0 +1,61 @@
+package Aula05_Switch;
+
+import java.util.Scanner;
+
+public class Exemplo {
+
+// linha para ele executar o programa
+    
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println();
+            System.out.println("Bem-vindo! Escolha um dos lanches abaixo:");
+            
+            System.out.println();
+            System.out.println("1 - X-Salada");
+            System.out.println("2 - X-Bacon");
+            System.out.println("3 - X-Bacon&Ovo");
+            System.out.println("4 - X-tudo(Podrão)");
+            System.out.println("5 - X-vegetariano");
+            System.out.println();
+    
+            System.out.println("Digite uma opção de lanche:");
+            int opcao = sc.nextInt();
+    
+            switch (opcao) {
+                case 1:
+                    System.out.println();
+                    System.out.println("Olá você escolheu a opção 1, seu lanche é X- salada.");
+                    System.out.println();
+                    break;
+                case 2:
+                    System.out.println();
+                    System.out.println("Olá você escolheu a opção 2,seu lanche é X-Bacon.");
+                    System.out.println();
+                    break;
+                case 3:
+                    System.out.println();
+                    System.out.println("Olá você escolheu a opção 3,seu lanche é X-Bacon&Ovo.");
+                    System.out.println();
+                    break;
+                case 4:
+                    System.out.println();
+                    System.out.println("Olá você escolheu a opção 4,seu lanche é X-tudo(Podrão).");
+                    System.out.println();
+                    break;
+                case 5:
+                    System.out.println();
+                    System.out.println("Opção Vegetariano.");
+                    System.out.println();
+                    break;
+                
+                default:
+                    System.out.println("Opção Inválida!");
+    
+                }
+
+                sc.close();
+
+        }
+    }
+
