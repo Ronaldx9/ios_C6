@@ -1,0 +1,45 @@
+package Aula06_For;
+
+import java.util.Scanner;
+
+public class Senha {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String userCorreto = "admin";
+        String senhaCorreto = "123";
+
+// tentativas usando For para entrar no sistema
+
+      
+        for(int i = 1; i<=3; i++)
+        {
+
+        // o usuario e as senhas devem aparecer aqui embaixo
+        // e o if fica dentro
+        // faltou isso, mas quase
+
+            System.out.println("Digite o seu usuario :");
+            String userDigitado = sc.nextLine();
+    
+            System.out.println("Digite a sua senha:");
+            String senhaDigitada = sc.nextLine();           
+
+
+        if (userDigitado.equals(userCorreto) && senhaDigitada.equals(senhaCorreto)) {
+            System.out.println("Você está logado!");
+            break;
+        } 
+        
+        else{
+            System.out.println("Você não conseguiu!");
+            System.out.println("Tentativa: " + i +" de 3");   
+        }
+
+
+ //       for(int i = 1; i<=4; i++){
+ //           System.out.println("Tentativa " + i +" errada");
+    
+}
+sc.close();
+}
+}
