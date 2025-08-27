@@ -1,0 +1,20 @@
+package Aula06_For;
+
+public class Exemplofor {
+
+    //execucao inicial
+
+    public static void main(String[] args) {
+        // int - inteiro do dado
+        // i - nome da variavel
+        // 1 - valor da variavel
+        // i = 1 (1<=5 ?) Sim. Entao:  
+        // i++ = 1+1 
+
+        for(int i = 1; i<=5; i++){
+            System.out.println("Valor de i:" + i);
+
+        }
+
+    }
+}
