@@ -1,0 +1,52 @@
+package Aula06_For;
+
+import java.util.Scanner;
+
+public class Exemplowhile {
+    public static void main(String[] args) {
+  
+//executa a partir desse lado
+        Scanner sc = new Scanner(System.in);
+        String userCorreto = "admin";
+        String senhaCorreto = "123";
+
+// tentativas usando While para entrar no sistema
+        int tentativa = 1;
+// faça essa execução até ele acertar        
+        while (tentativa <= 3) { 
+      
+//ler os dados digitados
+                System.out.println();
+                System.out.println("Digite o seu usuário :");
+                String userDigitado = sc.nextLine();
+    
+                System.out.println();
+                System.out.println("Digite a sua senha:");
+                String senhaDigitada = sc.nextLine();           
+
+            if (userDigitado.equals(userCorreto) && senhaDigitada.equals(senhaCorreto)) {
+                System.out.println("Você está logado!");
+            break;
+            } 
+        
+            else{
+                System.out.println();
+                System.out.println("Você não conseguiu!");
+                System.out.println("Tentativa: " + tentativa +" de 3");   
+                tentativa = tentativa + 1; // tentativa ++
+
+                if (tentativa <= 3) {
+                    System.out.println("Tente mais uma vez.");
+                }
+                else {
+                    System.out.println("Você excedeu as tentativas.");
+                }    
+                    
+            }
+    
+        }
+sc.close();
+    }
+}
+
+//userDigitado.equals(userCorreto) && senhaDigitada.equals(senhaCorreto)
