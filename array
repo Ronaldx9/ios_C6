@@ -1,0 +1,19 @@
+package Aula07_Array;
+
+public class Vetor {
+    public static void main(String[] args) {
+
+                          //  0       1          2       3
+        String[] frutas = { "Maça", "Morango", "Uva", "Laranja" };
+        //
+        System.out.println("Primeira fruta: " + frutas[0]);
+        //
+        System.out.println("Segunda fruta: " + frutas[1]);
+        //
+        System.out.println("Terceira fruta :" + frutas[2]);
+        //
+        System.out.println("Quarta fruta : " + frutas[3]);
+
+    }
+
+} 
