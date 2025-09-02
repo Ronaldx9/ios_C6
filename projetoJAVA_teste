@@ -1,0 +1,146 @@
+package Aula06_For;
+
+import java.util.Scanner;
+
+public class ativ {
+    public static void main(String[] args) {
+        
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Dados fixos de login
+        String usuarioCorreto = "admin";
+        String senhaCorreta = "1234";
+        int tentativas = 0;
+        boolean loginSucesso = false;
+
+        // Dados bancários
+        String nomeCliente = "João Silva";
+        String numeroConta = "12345-6";
+        double saldo = 1000.00;
+
+        // Histórico
+        String[] historico = new String[100];
+        int totalTransacoes = 0;
+
+        // 🔐 Login com até 3 tentativas
+        while (tentativas < 3) {
+            System.out.print("Usuário: ");
+            String usuario = scanner.nextLine();
+
+            System.out.print("Senha: ");
+            String senha = scanner.nextLine();
+
+            if (usuario.equals(usuarioCorreto) && senha.equals(senhaCorreta)) {
+                loginSucesso = true;
+                break;
+            } else {
+                tentativas++;
+                System.out.println("Login inválido. Tentativas restantes: " + (3 - tentativas));
+            }
+        }
+
+        if (!loginSucesso) {
+            System.out.println("Usuário bloqueado. Contate o administrador.");
+            return;
+        }
+
+        int opcao;
+
+        // 🔄 Loop de operações
+        do {
+            System.out.println("\n=== MENU PRINCIPAL ===");
+            System.out.println("1 - Consultar Saldo 💰");
+            System.out.println("2 - Histórico de Transações 📜");
+            System.out.println("3 - Realizar Depósito 💵");
+            System.out.println("4 - Realizar Saque 🏧");
+            System.out.println("5 - Sair ❌");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar buffer
+
+            switch (opcao) {
+                case 1:
+                    // 💰 Consulta de Saldo
+                    System.out.println("\n------ COMPROVANTE DE SALDO ------");
+                    System.out.println("Cliente: " + nomeCliente);
+                    System.out.println("Conta: " + numeroConta);
+                    System.out.printf("Saldo atual: R$ %.2f\n", saldo);
+                    System.out.println("----------------------------------");
+                    break;
+
+                case 2:
+                    // 📜 Histórico de Transações
+                    System.out.println("\n====== HISTÓRICO DE TRANSAÇÕES ======");
+                    if (totalTransacoes == 0) {
+                        System.out.println("Nenhuma transação registrada.");
+                    } else {
+                        for (int i = 0; i < totalTransacoes; i++) {
+                            System.out.println((i + 1) + ". " + historico[i]);
+                        }
+                    }
+                    System.out.println("=====================================");
+                    break;
+
+                case 3:
+                    // 💵 Depósitos
+                    System.out.print("Informe o valor a depositar: R$ ");
+                    double valorDeposito = scanner.nextDouble();
+                    scanner.nextLine(); // Limpar buffer
+
+                    if (valorDeposito <= 0) {
+                        System.out.println("Valor inválido.");
+                    } else {
+                        saldo += valorDeposito;
+                        historico[totalTransacoes] = "Depósito: +R$ " + String.format("%.2f", valorDeposito);
+                        totalTransacoes++;
+
+                        System.out.println("\n------ COMPROVANTE DE DEPÓSITO ------");
+                        System.out.println("Cliente: " + nomeCliente);
+                        System.out.println("Conta: " + numeroConta);
+                        System.out.printf("Valor depositado: R$ %.2f\n", valorDeposito);
+                        System.out.printf("Saldo atualizado: R$ %.2f\n", saldo);
+                        System.out.println("-------------------------------------");
+                    }
+                    break;
+
+                case 4:
+                    // 🏧 Saques
+                    System.out.print("Informe o valor do saque: R$ ");
+                    double valorSaque = scanner.nextDouble();
+                    scanner.nextLine(); // Limpar buffer
+
+                    if (valorSaque <= 0) {
+                        System.out.println("Valor inválido.");
+                    } else if (valorSaque > saldo) {
+                        System.out.println("Saldo insuficiente.");
+                    } else {
+                        saldo -= valorSaque;
+                        historico[totalTransacoes] = "Saque: -R$ " + String.format("%.2f", valorSaque);
+                        totalTransacoes++;
+
+                        System.out.println("\n------ COMPROVANTE DE SAQUE ------");
+                        System.out.println("Cliente: " + nomeCliente);
+                        System.out.println("Conta: " + numeroConta);
+                        System.out.printf("Valor sacado: R$ %.2f\n", valorSaque);
+                        System.out.printf("Saldo atualizado: R$ %.2f\n", saldo);
+                        System.out.println("----------------------------------");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Obrigado por usar o sistema bancário. Até logo!");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+
+        } while (opcao != 5);
+        
+        scanner.close();
+    }
+}
+    
+    
+
