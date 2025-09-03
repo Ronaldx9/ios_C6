@@ -1,0 +1,217 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+https://www.onlinegdb.com/online_java_compiler#
+*******************************************************************************/
+// package projeto2;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // variáveis
+
+        Scanner sc = new Scanner(System.in);
+        String loginC = "Adm";
+        String senhaC = "senha";
+        int tentativas = 0;
+        int saldoInicial = 1000;
+        int[] extrato = new int[20];
+        int contadorExtrato = 0;
+
+        //login do usuário
+        while (tentativas < 3) {
+            System.out.println();
+            System.out.println("Bem Vindo(a) ao Sistema Bancário!");
+            System.out.println("Para entrar...");
+            System.out.println();
+            
+            System.out.println("Por favor digite o seu login: ");
+            String loginDigitado = sc.nextLine();
+            System.out.println();
+
+            System.out.println("Por favor digite a sua senha: ");
+            String senhaDigitada = sc.nextLine();
+            System.out.println();
+            
+
+            if (loginDigitado.equals(loginC) && senhaDigitada.equals(senhaC)) {
+    //          System.out.println("========== MENU ==========");
+                System.out.println("");
+                System.out.println("Bem Vindo(a) ao Menu do Sistema Bancário Virtual!!!");
+
+
+                // Menu de opções
+                boolean Menu = false;
+                do {
+                    System.out.println();
+                    System.out.println("========== MENU ==========");
+                    System.out.println("1 - Consultar o saldo");
+                    System.out.println("2 - Faça um saque");
+                    System.out.println("3 - Faça um depósito");
+                    System.out.println("4 - Consulte o extrato");
+                    System.out.println("5 - Sair do Sistema");
+                    System.out.println();
+                    System.out.println("Digite a opção desejada de 1 a 5:");
+//                  System.out.println(" ");
+
+                    //lendo a opção do usuário
+                    int opcao = sc.nextInt();
+                    sc.nextLine();
+
+                    // executando a opção escolhida
+                    switch (opcao) {
+                        case 1:
+                        // consulta de saldo
+                            System.out.println("===================");
+                            System.out.println("Cliente: Admilson Silva"); 
+                            System.out.println("Conta Corrente: 1234-5 " + "C6 " + "Agência: 0001 ");
+                            System.out.println("");
+                            System.out.println("==== SALDO ====");
+                            System.out.println("Saldo atual é: R$ " + saldoInicial);
+//                          System.out.println("");
+                            break;
+
+                        case 2:
+                        // saque
+                            System.out.println("Valor que deseja sacar: R$ ");
+                            int saque = sc.nextInt();
+                              if (saldoInicial >= saque && saque > 0) {
+                                saldoInicial -= saque;
+                              
+                                System.out.println("");
+                                System.out.println("Saque realizado! Novo saldo: R$ " + saldoInicial);
+                                System.out.println(" ");
+
+                                System.out.println("Comprovante de saque: ");
+                                System.out.println("");
+                                System.out.println("Valor sacado: R$ " + saque);
+                                System.out.println("");
+                                System.out.println("Cliente: Admilson Silva");
+                                System.out.println("");
+                                System.out.println("Conta Corrente: 1234-5 " + "C6 " + "Agência: 0001 ");
+                                System.out.println("");
+
+                                // Armazena o saque no extrato (valor negativo)
+                                extrato[contadorExtrato] = -saque;
+                                contadorExtrato++;
+                                
+
+                            } else {
+                                System.out.println("Saldo insuficiente ou valor inválido!");
+                                System.out.println();
+                            }
+                            break;
+
+                        case 3:
+                        // depósito, algumas observações:
+                        // Para este item, pensamos deixar o usuário efetuar o depósito apenas utilizando
+                        // o valor presente em saldo da conta. Ou seja,
+                        // caso o usuário deposite um valor acima do valor do Saldo em conta,
+                        // o sistema não permitirá.
+                        System.out.println("Valor que deseja depositar: R$");
+
+                        int deposito = sc.nextInt();
+                            sc.nextLine();
+
+                            if (deposito <= saldoInicial) {
+                                saldoInicial += deposito;
+                                System.out.println("");
+                                System.out.println("Depósito realizado! Novo saldo: R$ " + saldoInicial);
+                                System.out.println("");
+
+                                System.out.println("Comprovante de depósito: ");
+                                System.out.println("");
+                                System.out.println("Valor depositado: R$ " + deposito);
+                                System.out.println("");
+                                System.out.println("Cliente: Admilson Silva");
+                                System.out.println("");
+                                System.out.println("Conta Corrente: 1234-5 " + "C6 " + "Agência: 0001 ");
+
+
+
+                                // Armazena o depósito no extrato (valor positivo)
+                                extrato[contadorExtrato] = +deposito;
+                                contadorExtrato++;
+                            } else {
+                                System.out.println("Saldo insuficiente!");
+                                System.out.println();
+                            }
+                            break;
+
+                              
+                            
+                           
+                        case 4:
+                        // extrato
+                    
+                        System.out.println("===== EXTRATO =====");
+                              System.out.println("===================");
+                              System.out.println("                   ");
+                            if (contadorExtrato == 0) {
+                                System.out.println("Nenhuma operação realizada ainda.");
+                                System.out.println("Saldo inicial: R$ " + saldoInicial);
+                                System.out.println();
+                                
+                            } else {
+                                System.out.println("Saldo inicial: R$ " + saldoInicial);
+                                System.out.println("                   ");
+                                for (int i = 0; i < contadorExtrato; i++) {
+                                    if (extrato[i] < 0) {
+                                        System.out.println("Transação Feita: ");
+                                        System.out.println("");
+                                        System.out.println("Saque: R$ " + (-extrato[i]));
+                                        System.out.println(" ");
+                                       
+                                    } else {
+                                        System.out.println("Transação Feita: ");
+                                        System.out.println("");
+                                         System.out.println("Depósito: R$ " + extrato[i]);
+                                        System.out.println(" ");
+                                        
+                                    }
+                                    System.out.println("Saldo atual: R$ " + saldoInicial);
+                                    System.out.println(" ");
+                                }
+                            }
+                            
+                            break;
+                        case 5:
+                        // sair
+                            Menu = true;
+                            System.out.println();
+                            System.out.println("Saindo do Sistema Bancário Virtual ...");
+                            System.out.println("Obrigado pela sua presença. Até breve!!!");
+
+                            break;
+                        
+                        // para digitacao de opcao nao existente, utiliza-se o default    
+                        default:
+                            System.out.println("Opção inválida");
+                    }
+                } while(!Menu);
+
+                break;
+
+            } else {
+                // login ou senha incorretos
+                tentativas++;
+                System.out.println("Login ou senha incorretos!");
+                System.out.println("Você tem mais " + (3 - tentativas) + " tentativa(s) disponível(is).");
+            }
+        }
+
+        if (tentativas >= 3) {
+            // excedeu o numero de tentativas
+            System.out.println("Você excedeu as tentativas para ingressar no sistema!");
+            System.out.println("Prezado(a), por medidas de segurança seu usuário(a) está bloqueado(a)!");
+            System.out.println("Contate seu administrador responsável!");
+            
+        }
+        sc.close();
+    }
+}
