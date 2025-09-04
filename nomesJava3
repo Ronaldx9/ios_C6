@@ -1,0 +1,59 @@
+import java.util.Scanner; 
+// Importa apenas a classe Scanner para leitura pelo teclado
+
+public class Main { // Declara a classe principal do programa
+    public static void main(String[] args) { // Método main: ponto de entrada da aplicação
+        Scanner sc = new Scanner(System.in); // Cria o Scanner para ler entradas do usuário
+
+        String[] alunos = new String[50]; // Cria um array para armazenar até 50 nomes de alunos
+        int quantidade = 0; // Controla quantos alunos já foram cadastrados
+        int opcao; // Guardará a opção escolhida no menu
+
+        do { // Início do laço que mostra o menu repetidamente até escolher sair
+            System.out.println("\n=== MENU ==="); // Exibe o título do menu
+            System.out.println("1 - Adicionar aluno"); // Opção 1: adicionar aluno
+            System.out.println("2 - Listar alunos"); // Opção 2: listar alunos
+            System.out.println("3 - Sair"); // Opção 3: sair do programa
+            System.out.print("Escolha uma opção: "); // Pede que o usuário escolha uma opção
+            opcao = sc.nextInt(); // Lê a opção numérica digitada
+            sc.nextLine(); // Consome a quebra de linha pendente (limpa o buffer)
+
+            switch (opcao) { // Seleciona o bloco de código conforme a opção escolhida
+                case 1: // Caso 1: adicionar aluno
+                    if (quantidade < alunos.length) { // Verifica se ainda há espaço no array
+                        System.out.print("Digite o nome do aluno: "); // Solicita o nome do aluno
+                        String nome = sc.nextLine(); // Lê o nome completo digitado
+                        alunos[quantidade] = nome; // Armazena o nome na posição atual
+                        quantidade++; // Incrementa a contagem de alunos cadastrados
+                        System.out.println("Aluno adicionado com sucesso!"); // Confirma a adição
+                    } else { // Se o array estiver cheio
+                        System.out.println("Limite de alunos atingido!"); // Informa que atingiu o limite
+                    }
+                    break; // Encerra o case 1
+
+                case 2: // Caso 2: listar alunos
+                    if (quantidade == 0) { // Verifica se não há alunos cadastrados
+                        System.out.println("Nenhum aluno cadastrado ainda."); // Mensagem de vazio
+                    } else { // Se há alunos
+                        System.out.println("\n=== Lista de Alunos ==="); // Título da lista
+                        for (int i = 0; i < quantidade; i++) { // Percorre os alunos cadastrados
+                            System.out.println((i + 1) + " - " + alunos[i]); // Imprime índice e nome do aluno
+                        }
+                    }
+                    break; // Encerra o case 2
+
+                case 3: // Caso 3: sair
+                    System.out.println("Encerrando o programa..."); // Mensagem de saída
+                    break; // Encerra o case 3
+
+                default: // Qualquer outra opção inválida
+                    System.out.println("Opção inválida, tente novamente."); // Informa que a opção não existe
+            } // Fim do switch
+
+        } while (opcao != 3); // Continua repetindo o menu enquanto a opção não for 3 (sair)
+
+        sc.close(); // Fecha o Scanner para liberar o recurso de entrada
+    } 
+// Fim do método main
+} 
+// Fim da classe Main;/0
