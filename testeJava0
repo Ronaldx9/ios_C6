@@ -1,0 +1,66 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class Teste {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Cabeçalho do sistema
+        System.out.println("==============================================================");
+        System.out.println("               SISTEMA CADASTRO USER - TECH                  ");
+        System.out.println("==============================================================\n");
+
+        // Entrada de dados
+        System.out.print("Digite o seu nome: ");
+        String nome = sc.nextLine();
+        System.out.println("---------------------------------------------------------------");
+
+        System.out.print("Digite o seu email: ");
+        String email = sc.nextLine();
+        System.out.println("---------------------------------------------------------------");
+
+        System.out.print("Digite a sua senha: ");
+        String senha = sc.nextLine();
+
+        System.out.println("---------------------------------------------------------------");
+
+        // Criptografa a senha
+        String senhaCrip = Criptografia.criptografarSHA256(senha);
+
+        // Conecta ao banco
+        Connection conexao2 = Conexao.getConexao();
+        if (conexao2 == null) {
+            System.out.println("==========================================================================");
+            System.out.println("OLÁ " + nome + "! VOCÊ NÃO POSSUI CADASTRO! INFELIZMENTE NÃO PODEMOS SEGUIR!!");
+            System.out.println("==========================================================================");
+            return;
+        }
+
+        try {
+            // SQL para inserir dados
+            String SQL = "INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)";
+            PreparedStatement stmt = conexao2.prepareStatement(SQL);
+
+            // Corrigido: passar os valores do usuário, não a query
+            stmt.setString(1, nome);
+            stmt.setString(2, email);
+            stmt.setString(3, senhaCrip);
+
+            stmt.executeUpdate();
+
+            // Mensagem de sucesso
+            System.out.println("=================== DADOS INSERIDOS ==========================");
+            System.out.println("NOME  : " + nome);
+            System.out.println("E-MAIL: " + email);
+            System.out.println("SENHA : " + senhaCrip);
+            System.out.println("==============================================================\n");
+
+            conexao2.close();
+        } catch (Exception e) {
+            System.out.println("Erro ao inserir usuário: " + e.getMessage());
+        }
+
+        sc.close();
+    }
+}
