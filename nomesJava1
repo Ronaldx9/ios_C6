@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class nomes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] alunos = new String[50]; // limite de até 50 nomes
+        int quantidade = 0;
+
+        System.out.println("=== Cadastro de Alunos ===");
+
+        while (true) {
+            System.out.print("Digite o nome do aluno (ou 'sair' para finalizar): ");
+            String nome = sc.nextLine();
+
+            if (nome.equalsIgnoreCase("sair")) {
+                break;
+            }
+
+            if (quantidade < alunos.length) {
+                alunos[quantidade] = nome;
+                quantidade++;
+                System.out.println("Aluno adicionado com sucesso!");
+            } else {
+                System.out.println("Limite de alunos atingido.");
+                break;
+            }
+        }
+
+        System.out.println("\n=== Lista de Alunos Cadastrados ===");
+        for (int i = 0; i < quantidade; i++) {
+            System.out.println((i + 1) + " - " + alunos[i]);
+        }
+
+        sc.close();
+    }
+}
